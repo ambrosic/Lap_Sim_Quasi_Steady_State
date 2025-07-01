@@ -123,7 +123,7 @@ IA_gainf = IA_roll_inducedf*IA_compensationf;
 IA_gainr = IA_roll_inducedr*IA_compensationr;
 %% Section 5: Input Aero Parameters
 disp('Loading Aero Model')
-Cl = .0418; %279/418
+Cl = .0478; %279/418
 Cd = .0184; % .0245
 CoP = 48; % front downforce distribution (%)
 
