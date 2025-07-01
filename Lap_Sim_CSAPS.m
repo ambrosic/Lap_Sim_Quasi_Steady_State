@@ -27,15 +27,18 @@ disp('Loading Tire Model')
 % First we load in the lateral tire force model, which is a CSAPS cubic
 % spline interpolation fit to TTC data
 % make sure these files are already in your directory
-filename = 'Hoosier_R25B_18.0x7.5-10_FY_12psi.mat';
+filename = 'HS_16_7_10_LCO.mat';
 load(filename)
+HS_16_7_10_LCO = HS_16_7_10_LCO{2,1};
+slips = linspace(-12,12,25);
+loads = linspace(-250,-50,5);
 
 % Next you load in the longitudinal tire model, which is a
 % CSAPS spline fit to the TTC data
 % find your pathname and filename for the tire you want to load in
 filename = 'Hoosier_R25B_18.0x7.5-10_FX_12psi.mat';
 load(filename)
-tire_radius = 9.05/12; %ft
+tire_radius = 8.05/12; %ft
 tyreRadius = tire_radius/3.28; % converts to meters
 
 % finally, we have some scaling factors for longitudinal (x) and lateral
@@ -47,14 +50,14 @@ sf_y = .47;
 % change whatever you want here, this is the 2018 powertrain package iirc
 % just keep your units consistent please
 disp('Loading Engine Model')
-engineSpeed = [6200:100:14100]; % RPM
+engineSpeed = [3800:200:16000]; % RPM
 % torque should be in N-m:
-engineTq = [41.57 42.98 44.43 45.65 46.44 47.09 47.52 48.58 49.57 50.41 51.43 51.48 51 49.311 48.94 48.66 49.62 49.60 47.89 47.91 48.09 48.57 49.07 49.31 49.58 49.56 49.84 50.10 50.00 50.00 50.75 51.25 52.01 52.44 52.59 52.73 53.34 53.72 52.11 52.25 51.66 50.5 50.34 50.50 50.50 50.55 50.63 50.17 50.80 49.73 49.35 49.11 48.65 48.28 48.28 47.99 47.68 47.43 47.07 46.67 45.49 45.37 44.67 43.8 43.0 42.3 42.00 41.96 41.70 40.43 39.83 38.60 38.46 37.56 36.34 35.35 33.75 33.54 32.63 31.63];
+engineTq = [5	5	5	5	5	5	5	5	5	5	8	11	12	14	15.5	18	19.8	21	22	22	23	24	25	26	26.2	27	27.8	27.8	28	28.2	29	29.8	29.8	29.8	30	30	30	30	30	29.9	29.89	29.8	29.75	29	28.75	28.2	27.9	27.5	27	26.45	26	25.1	24.9	24.3	24	23.8	23	22.8	22.4	22	21.5	21.1	20.9	20.4	19.8	18.5	18	17	16	14	12];
 primaryReduction = 76/36;
 gear = [33/12, 32/16, 30/18, 26/18, 30/23, 29/24]; % transmission gear ratios
 finalDrive = 40/12; % large sprocket/small sprocket
 shiftpoint = 14000; % optimal shiftpoint for most gears [RPM]
-drivetrainLosses = .85; % percent of torque that makes it to the rear wheels 
+drivetrainLosses = 1.0; % percent of torque that makes it to the rear wheels 
 shift_time = .25; % seconds
 T_lock = 90; % differential locking torque (0 =  open, 1 = locked)
 
