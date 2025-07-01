@@ -55,9 +55,9 @@ engineSpeed = [3800:200:16000]; % RPM
 engineTq = [5	5	5	5	5	5	5	5	5	5	8	11	12	14	15.5	18	19.8	21	22	22	23	24	25	26	26.2	27	27.8	27.8	28	28.2	29	29.8	29.8	29.8	30	30	30	30	30	29.9	29.89	29.8	29.75	29	28.75	28.2	27.9	27.5	27	26.45	26	25.1	24.9	24.3	24	23.8	23	22.8	22.4	22	21.5	21.1	20.9	20.4	19.8	18.5	18	17	16	14	12];
 primaryReduction = 76/36;
 gear = [33/12, 32/16, 30/18, 26/18, 30/23, 29/24]; % transmission gear ratios
-finalDrive = 40/12; % large sprocket/small sprocket
-shiftpoint = 14000; % optimal shiftpoint for most gears [RPM]
-drivetrainLosses = 1.0; % percent of torque that makes it to the rear wheels 
+finalDrive = 35/13; % large sprocket/small sprocket
+shiftpoint = 13000; % optimal shiftpoint for most gears [RPM]
+drivetrainLosses = 1; %.85; % percent of torque that makes it to the rear wheels 
 shift_time = .25; % seconds
 T_lock = 90; % differential locking torque (0 =  open, 1 = locked)
 
