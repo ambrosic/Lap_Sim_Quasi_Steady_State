@@ -3,9 +3,9 @@
 % Tradespace Analysis Project
 % 2019 Michigan Dynamic Event Lap Sim
 
-clear
-close all
-clc
+%clear
+%close all
+%clc
 
 % The purpose of this code is to evaluate the points-scoring capacity of a
 % virtual vehicle around the 2019 FSAE Michigan Dynamic Event Tracks
@@ -29,7 +29,7 @@ disp('Loading Tire Model')
 % make sure these files are already in your directory
 filename = 'HS_16_7_10_LCO.mat';
 load(filename)
-HS_16_7_10_LCO = HS_16_7_10_LCO{2,1};
+HS_16_7_10_LCO = csapsfits{2,1};
 slips = linspace(-12,12,25);
 loads = linspace(-250,-50,5);
 
@@ -37,6 +37,8 @@ loads = linspace(-250,-50,5);
 % CSAPS spline fit to the TTC data
 % find your pathname and filename for the tire you want to load in
 filename = 'Hoosier_R25B_18.0x7.5-10_FX_12psi.mat';
+load(filename) %full_send_x is loaded here
+filename = 'Hoosier_R25B_18.0x7.5-10_FY_12psi.mat';
 load(filename)
 tire_radius = 8.05/12; %ft
 tyreRadius = tire_radius/3.28; % converts to meters
