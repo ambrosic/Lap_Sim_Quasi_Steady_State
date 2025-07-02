@@ -6,7 +6,7 @@
 % function with any specific variable defined in the function call in order
 % to run multiple simulations with different variables easier
 
-function [points, endurance, autocross] = Lap_Sim_CSAPS_Func(varName,varValue)
+function [points, endurance, autocross, skidpad, acceleration] = Lap_Sim_CSAPS_Func(varName,varValue)
     
     %ensures input arguments are valid
     arguments (Repeating)
@@ -1702,7 +1702,7 @@ disp('Analysis Complete')
 points = [Total_Points, Accel_Score, Skidpad_Score, Autocross_Score, Endurance_Score];
 endurance = [laptime time_elapsed velocity acceleration lateral_accel gear_counter path_length weights distance];
 autocross = [laptime_ax time_elapsed_ax velocity_ax, acceleration_ax lateral_accel_ax gear_counter_ax path_length_ax weights_ax distance_ax];
-%skidpad = [];
-%acceleration = [];
+skidpad = [speed, skidpad_time];
+acceleration = [accel_time,vehicle_gear,dt_f,ax_f,v_f,dv_f];
 
 end
